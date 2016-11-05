@@ -14,6 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var apigeeClient: ApigeeClient?
     var apigeeMonitorClient: ApigeeMonitoringClient?
     var apigeeDataClient: ApigeeDataClient?
+    var appUser: User?
 
     var window: UIWindow?
 
