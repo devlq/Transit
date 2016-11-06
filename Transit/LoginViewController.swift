@@ -72,7 +72,7 @@ class LoginViewController: UIViewController {
         let dataClient = appDelegate.apigeeDataClient
         dataClient?.logOut(appDelegate.appUser?.userName)
         appDelegate.appUser=nil
-        appDelegate.interchanges=nil
+        appDelegate.interchanges.removeAll()
     }
 
     @IBAction func unWindToLogin(unwindSegue: UIStoryboardSegue) {

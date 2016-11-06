@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import CoreLocation
 
 struct Interchange {
     var name: String!
@@ -16,12 +15,15 @@ struct Interchange {
 }
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate {
     var apigeeClient: ApigeeClient?
     var apigeeMonitorClient: ApigeeMonitoringClient?
     var apigeeDataClient: ApigeeDataClient?
     var appUser: User?
     var interchanges = [Interchange]()
+    let remindDistance: Double = 50
+    let locationUpdateDistance: Double = 20
+    var lastLocation: CLLocation?
 
     var window: UIWindow?
 
@@ -34,8 +36,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         apigeeClient = ApigeeClient.init(organizationId: orgName, applicationId: appName)
         apigeeMonitorClient = apigeeClient?.monitoringClient()
         apigeeDataClient = apigeeClient?.dataClient()
+        
         return true
     }
+    
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

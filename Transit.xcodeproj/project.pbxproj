@@ -27,6 +27,7 @@
 		43D3C1141DCE608E00AAD003 /* InterchangeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D3C1131DCE608E00AAD003 /* InterchangeTableViewController.swift */; };
 		43D3C1161DCE6FB200AAD003 /* plus.png in Resources */ = {isa = PBXBuildFile; fileRef = 43D3C1151DCE6FB200AAD003 /* plus.png */; };
 		43D3C1181DCE722300AAD003 /* SelectTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D3C1171DCE722300AAD003 /* SelectTableViewController.swift */; };
+		43D3C11A1DCF387B00AAD003 /* MainNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D3C1191DCF387B00AAD003 /* MainNavController.swift */; };
 		AA0D2F8D344FD417E0656FD2 /* Pods_TransitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BE0D9D44F476AB287E5FC09 /* Pods_TransitTests.framework */; };
 		B4526CE03640BDF4E82782A2 /* Pods_TransitUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 282893DA8F0436D48B70CB66 /* Pods_TransitUITests.framework */; };
 		E02F9A8CF41B8E44F6A9F560 /* Pods_Transit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07834D0B19EA6E9516F876B9 /* Pods_Transit.framework */; };
@@ -83,6 +84,7 @@
 		43D3C1131DCE608E00AAD003 /* InterchangeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterchangeTableViewController.swift; sourceTree = "<group>"; };
 		43D3C1151DCE6FB200AAD003 /* plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plus.png; sourceTree = SOURCE_ROOT; };
 		43D3C1171DCE722300AAD003 /* SelectTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectTableViewController.swift; sourceTree = "<group>"; };
+		43D3C1191DCF387B00AAD003 /* MainNavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainNavController.swift; sourceTree = "<group>"; };
 		656C301D848984CE3FF7A88B /* Pods-TransitUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TransitUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TransitUITests/Pods-TransitUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		6BF3744AE0C8DCA0D2C9D835 /* Pods-Transit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Transit.release.xcconfig"; path = "Pods/Target Support Files/Pods-Transit/Pods-Transit.release.xcconfig"; sourceTree = "<group>"; };
 		9EDE2FBAD76B9AB78E161258 /* Pods-TransitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TransitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TransitTests/Pods-TransitTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 				43D3C1131DCE608E00AAD003 /* InterchangeTableViewController.swift */,
 				43D3C1151DCE6FB200AAD003 /* plus.png */,
 				43D3C1171DCE722300AAD003 /* SelectTableViewController.swift */,
+				43D3C1191DCF387B00AAD003 /* MainNavController.swift */,
 			);
 			path = Transit;
 			sourceTree = "<group>";
@@ -498,6 +501,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43D3C11A1DCF387B00AAD003 /* MainNavController.swift in Sources */,
 				43130B891DCDF90B0020AAAF /* User.swift in Sources */,
 				43130B8B1DCE0AA20020AAAF /* RegisterViewController.swift in Sources */,
 				433717631DCDA2500019DF4B /* LoginViewController.swift in Sources */,

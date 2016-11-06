@@ -391,10 +391,10 @@
             </objects>
             <point key="canvasLocation" x="3921" y="-82"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Main Nav Controller-->
         <scene sceneID="Chy-p5-LB5">
             <objects>
-                <navigationController id="EJq-fN-JDP" sceneMemberID="viewController">
+                <navigationController id="EJq-fN-JDP" customClass="MainNavController" customModule="Transit" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="WnE-Mk-Ciy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

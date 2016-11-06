@@ -62,7 +62,7 @@ class SelectTableViewController: UITableViewController {
     }
 
     override func viewWillDisappear(_ animated: Bool) {
-        interchanges = []
+        interchanges.removeAll()
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.interchanges.sort{ $0.name < $1.name}
         if let previousTable = selectedListViewController?.tableView {

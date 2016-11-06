@@ -20,6 +20,18 @@ class InterchangeTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+    }
+    
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        let errorType = error.localizedDescription
+        let alertController = UIAlertController(title: "Location Manager Error", message: errorType, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .cancel, handler: {action in})
+        alertController.addAction(okAction)
+        present(alertController, animated: true, completion: nil)
+    }
 
 
     // MARK: - Table view data source
@@ -33,6 +45,7 @@ class InterchangeTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//        let navVC = self.navigationController as! MainNavController
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
         if indexPath.row == appDelegate.interchanges.count {
             cell.textLabel?.textColor=UIColor.gray
@@ -43,11 +56,21 @@ class InterchangeTableViewController: UITableViewController {
             cell.imageView?.image = image
         }
         else {
+            let ic = appDelegate.interchanges[indexPath.row]
             cell.textLabel?.textColor=UIColor.black
-            cell.textLabel?.text = appDelegate.interchanges[indexPath.row].name
+            cell.textLabel?.text = ic.name
             cell.textLabel?.textAlignment = .left
             cell.detailTextLabel?.textColor=UIColor.black
-            cell.detailTextLabel?.text = "\(appDelegate.interchanges[indexPath.row].latitude!), \(appDelegate.interchanges[indexPath.row].longitude!)"
+            let icLocation = CLLocation(latitude: ic.latitude!, longitude: ic.longitude!)
+            var distanceString: String!
+            if appDelegate.lastLocation != nil {
+                let distance = appDelegate.lastLocation!.distance(from: icLocation)
+                distanceString = String(format: "%gm", distance)
+            }
+            else {
+                distanceString = "Unknown"
+            }
+            cell.detailTextLabel?.text = "(\(ic.latitude!), \(ic.longitude!)), Distance: \(distanceString!)"
             cell.detailTextLabel?.textAlignment = .left
             cell.imageView?.image=nil
         }
@@ -58,14 +81,15 @@ class InterchangeTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let navVC = self.navigationController as! MainNavController
         if indexPath.row == appDelegate.interchanges.count {
+            if CLLocationManager.authorizationStatus() == .notDetermined {
+                navVC.locationManager.requestAlwaysAuthorization()
+            }
             performSegue(withIdentifier: "selectInterchangeSegue", sender: self)
         }
     }
     
-    @IBAction func listUpdated (sender: UIButton) {
-        tableView.reloadData()
-    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
