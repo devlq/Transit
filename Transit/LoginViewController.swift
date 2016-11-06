@@ -46,8 +46,15 @@ class LoginViewController: UIViewController {
                 let responseDict = response.response as! NSDictionary
                 let user = responseDict["user"] as! NSDictionary
                 appDelegate.appUser=User(userName: user["username"] as! String, emailAddress: user["email"] as! String, fullName: user["name"] as! String, uuid: user["uuid"] as! String)
-                appDelegate.appUser?.accessToken = responseDict["access_token"] as? String
-                
+                let token = responseDict["access_token"] as? String
+                appDelegate.appUser?.accessToken = token
+                dataClient?.addHTTPHeaderField("Authorization", withValue: "Bearer \(token!)")
+/*                var error: NSErrorPointer=nil
+                dataClient?.storeOAuth2Tokens(inKeychain: "OAuth2Token", accessToken: appDelegate.appUser?.accessToken, refreshToken: nil, error: error)
+                if error != nil {
+                    print("Store OAuth2 Tokens failed")
+                }
+*/
                 self.performSegue(withIdentifier: "showHomeViewSegue", sender: self)
             }
             else {
@@ -65,6 +72,7 @@ class LoginViewController: UIViewController {
         let dataClient = appDelegate.apigeeDataClient
         dataClient?.logOut(appDelegate.appUser?.userName)
         appDelegate.appUser=nil
+        appDelegate.interchanges=nil
     }
 
     @IBAction func unWindToLogin(unwindSegue: UIStoryboardSegue) {

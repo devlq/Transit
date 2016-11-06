@@ -42,7 +42,10 @@ class RegisterViewController: UIViewController {
             print(response.response)
             if response.completedSuccessfully() {
                 let responseDict = response.response as! NSDictionary
-                user.accessToken = responseDict["access_token"] as? String
+                let token = responseDict["access_token"] as? String
+                user.accessToken = token
+                dataClient?.addHTTPHeaderField("Authorization", withValue: "Bearer \(token!)")
+
                 self.performSegue(withIdentifier: "registerToHomeViewSegue", sender: self)
             }
             else {

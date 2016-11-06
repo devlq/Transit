@@ -9,12 +9,19 @@
 import UIKit
 import CoreLocation
 
+struct Interchange {
+    var name: String!
+    var latitude: Double?
+    var longitude: Double?
+}
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var apigeeClient: ApigeeClient?
     var apigeeMonitorClient: ApigeeMonitoringClient?
     var apigeeDataClient: ApigeeDataClient?
     var appUser: User?
+    var interchanges = [Interchange]()
 
     var window: UIWindow?
 
