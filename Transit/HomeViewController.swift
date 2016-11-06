@@ -10,6 +10,7 @@ import UIKit
 
 class HomeViewController: UIViewController {
     @IBOutlet weak var greeting: UILabel!
+    @IBOutlet weak var logoutButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +19,20 @@ class HomeViewController: UIViewController {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let name = appDelegate.appUser?.fullName
         greeting.text="Welcome \(name!)"
+        
+        if let fbLogoutButton = appDelegate.fbLoginButton {
+            let token = FBSDKAccessToken.current()
+            if token != nil {
+                fbLogoutButton.center = logoutButton.center
+                logoutButton.isHidden = true
+            }
+            else {
+                logoutButton.isHidden = false
+            }
+        }
+        else {
+            logoutButton.isHidden = false 
+        }
     }
 
     override func didReceiveMemoryWarning() {

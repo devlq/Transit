@@ -64,18 +64,18 @@
                                     <segue destination="uRg-99-biK" kind="show" id="ybn-rg-wrh"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I2s-hW-U1z">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W8S-ry-z8u">
                                 <rect key="frame" x="102" y="449" width="175" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.30212077159596312" green="0.51049401077986067" blue="0.72336632013320923" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Login with Facebook">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                            </button>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
+                        <outlet property="fbButtonPlaceHolder" destination="W8S-ry-z8u" id="6nj-5z-mEp"/>
                         <outlet property="passwordField" destination="ukC-y1-siU" id="cgB-dn-Umf"/>
                         <outlet property="usernameField" destination="hOJ-19-93x" id="CGZ-42-c2g"/>
                         <segue destination="EJq-fN-JDP" kind="show" identifier="showHomeViewSegue" id="DHp-iv-4We"/>
@@ -258,6 +258,7 @@
                     <navigationItem key="navigationItem" id="Efa-vQ-OTp"/>
                     <connections>
                         <outlet property="greeting" destination="hsn-LL-5DH" id="KGB-E1-Jas"/>
+                        <outlet property="logoutButton" destination="Kon-vF-BDw" id="CDN-Jx-W9e"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aU7-qh-uxX" userLabel="First Responder" sceneMemberID="firstResponder"/>
