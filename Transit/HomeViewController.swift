@@ -19,10 +19,12 @@ class HomeViewController: UIViewController {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let name = appDelegate.appUser?.fullName
         greeting.text="Welcome \(name!)"
+        appDelegate.homeScreenViewController = self
         
         if let fbLogoutButton = appDelegate.fbLoginButton {
             let token = FBSDKAccessToken.current()
             if token != nil {
+                view.addSubview(fbLogoutButton)
                 fbLogoutButton.center = logoutButton.center
                 logoutButton.isHidden = true
             }
@@ -47,7 +49,7 @@ class HomeViewController: UIViewController {
         super.viewWillDisappear(animated)
         self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
-
+    
     /*
     // MARK: - Navigation
 

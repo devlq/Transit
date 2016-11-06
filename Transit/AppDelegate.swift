@@ -27,6 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     let locationUpdateDistance: Double = 20
     var lastLocation: CLLocation?
     var fbLoginButton: FBSDKLoginButton?
+    var homeScreenViewController: HomeViewController?
 
     var window: UIWindow?
 

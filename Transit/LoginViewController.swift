@@ -53,8 +53,10 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
                 email = ""
             }
         }
-*/        let token = FBSDKAccessToken.current()
+*/
+        let token = FBSDKAccessToken.current()
         if let fb_token=token?.tokenString {
+            print(fb_token)
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
             let dataClient = appDelegate.apigeeDataClient
             if let response = dataClient?.logInUser(withFacebook: fb_token) {
@@ -83,10 +85,12 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     }
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
         print("FB logout")
-        loginButton.center = fbButtonPlaceHolder.center
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.homeScreenViewController?.performSegue(withIdentifier: "fbUnwindSegue", sender: loginButton)
         
         view.addSubview(loginButton)
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        loginButton.center = fbButtonPlaceHolder.center
+        
         appDelegate.appUser=nil
         appDelegate.interchanges.removeAll()
         
@@ -147,17 +151,15 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     @IBAction func unWindToLogin(unwindSegue: UIStoryboardSegue) {
     }
 
-    
-    // MARK: - Navigation
+    @IBAction func unwindWithFBLogout(unwindSegue: UIStoryboardSegue) {
+    }
+/*    // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        let destinationVC = segue.destination
-        destinationVC.view.addSubview(loginButton)
-        
     }
-    
+*/    
 
 }

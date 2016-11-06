@@ -259,6 +259,7 @@
                     <connections>
                         <outlet property="greeting" destination="hsn-LL-5DH" id="KGB-E1-Jas"/>
                         <outlet property="logoutButton" destination="Kon-vF-BDw" id="CDN-Jx-W9e"/>
+                        <segue destination="Teo-zl-njx" kind="unwind" identifier="fbUnwindSegue" unwindAction="unwindWithFBLogoutWithUnwindSegue:" id="AJs-Il-aKV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aU7-qh-uxX" userLabel="First Responder" sceneMemberID="firstResponder"/>
