@@ -10,6 +10,7 @@
 		43130B851DCDD29E0020AAAF /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43130B841DCDD29E0020AAAF /* HomeViewController.swift */; };
 		43130B891DCDF90B0020AAAF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43130B881DCDF90B0020AAAF /* User.swift */; };
 		43130B8B1DCE0AA20020AAAF /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43130B8A1DCE0AA20020AAAF /* RegisterViewController.swift */; };
+		433275401DD171C200551174 /* FootpathTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4332753F1DD171C200551174 /* FootpathTableViewController.swift */; };
 		433717351DCD9E820019DF4B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433717341DCD9E820019DF4B /* AppDelegate.swift */; };
 		4337173A1DCD9E820019DF4B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 433717381DCD9E820019DF4B /* Main.storyboard */; };
 		4337173C1DCD9E820019DF4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4337173B1DCD9E820019DF4B /* Assets.xcassets */; };
@@ -54,6 +55,7 @@
 		43130B841DCDD29E0020AAAF /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		43130B881DCDF90B0020AAAF /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		43130B8A1DCE0AA20020AAAF /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		4332753F1DD171C200551174 /* FootpathTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FootpathTableViewController.swift; sourceTree = "<group>"; };
 		433717311DCD9E820019DF4B /* Transit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Transit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		433717341DCD9E820019DF4B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		433717391DCD9E820019DF4B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 				43D3C1151DCE6FB200AAD003 /* plus.png */,
 				43D3C1171DCE722300AAD003 /* SelectTableViewController.swift */,
 				43D3C1191DCF387B00AAD003 /* MainNavController.swift */,
+				4332753F1DD171C200551174 /* FootpathTableViewController.swift */,
 			);
 			path = Transit;
 			sourceTree = "<group>";
@@ -444,6 +447,7 @@
 				43D3C11A1DCF387B00AAD003 /* MainNavController.swift in Sources */,
 				43130B891DCDF90B0020AAAF /* User.swift in Sources */,
 				43130B8B1DCE0AA20020AAAF /* RegisterViewController.swift in Sources */,
+				433275401DD171C200551174 /* FootpathTableViewController.swift in Sources */,
 				433717631DCDA2500019DF4B /* LoginViewController.swift in Sources */,
 				433717351DCD9E820019DF4B /* AppDelegate.swift in Sources */,
 				43D3C1141DCE608E00AAD003 /* InterchangeTableViewController.swift in Sources */,
