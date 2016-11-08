@@ -92,8 +92,8 @@ class FootpathTableViewController: UITableViewController {
             }
             self.footpaths.sort{($0["name"] as! String) < ($1["name"] as! String)}
             self.loading = false
-            self.tableView.reloadData()
             DispatchQueue.main.async(execute: {
+                self.tableView.reloadData()
                 self.loadingIndcator.stopAnimating()
             })
           }

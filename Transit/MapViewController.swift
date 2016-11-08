@@ -51,6 +51,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         if guideStarted {
             guideStarted = false
             starButton.setTitle("Start", for: UIControlState.normal)
+            instruction.text = ""
             locationManager.distanceFilter = CLLocationDistance(appDelegate.locationUpdateDistanceInterchange)
         }
         else {
@@ -83,12 +84,16 @@ class MapViewController: UIViewController, MKMapViewDelegate {
                     if shortest_distance < DESTINATION_ARRIVED_DISTANCE {
                         instruction.text = "You have arrived"
                         let alertController = UIAlertController(title: "Arrived at the destination", message: "You have arrived at \(selectedPath ["end_address"] as! String).", preferredStyle: .alert)
-                        let okAction = UIAlertAction(title: "OK", style: .cancel, handler: {action in})
+                        let okAction = UIAlertAction(title: "OK", style: .cancel){action in
+                            self.guideStarted = false
+                            self.starButton.setTitle("Start", for: UIControlState.normal)
+                            self.instruction.text = ""
+                            locationManager.distanceFilter = CLLocationDistance(appDelegate.locationUpdateDistanceInterchange)
+                            self.displayMap()
+                        }
                         alertController.addAction(okAction)
                         present(alertController, animated: true, completion: nil)
-                        guideStarted = false
-                        starButton.setTitle("Start", for: UIControlState.normal)
-                        locationManager.distanceFilter = CLLocationDistance(appDelegate.locationUpdateDistanceInterchange)
+                        return
                     }
                 }
                 else {
