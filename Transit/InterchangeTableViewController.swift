@@ -19,21 +19,15 @@ class InterchangeTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let locationManager = (navigationController as! MainNavController).locationManager
+        locationManager.distanceFilter = CLLocationDistance(appDelegate.locationUpdateDistanceInterchange)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
     }
     
     
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        let errorType = error.localizedDescription
-        let alertController = UIAlertController(title: "Location Manager Error", message: errorType, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .cancel, handler: {action in})
-        alertController.addAction(okAction)
-        present(alertController, animated: true, completion: nil)
-    }
-
-
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

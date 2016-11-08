@@ -24,7 +24,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     var appUser: User?
     var interchanges = [Interchange]()
     let remindDistance: Double = 50
-    let locationUpdateDistance: Double = 20
+    let guideDistance: Double = 0.5
+    let locationUpdateDistanceInterchange: Double = 20
+    let locationUpdateDistanceFootpath: Double = 0.5
     var lastLocation: CLLocation?
     var fbLoginButton: FBSDKLoginButton?
     var homeScreenViewController: HomeViewController?

@@ -8,18 +8,19 @@
 
 import UIKit
 import CoreLocation
+import MapKit
 
 class MainNavController: UINavigationController, CLLocationManagerDelegate {
     let locationManager = CLLocationManager()
     var reminderShown = false
+//    var mapView: MKMapView?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.distanceFilter = CLLocationDistance(appDelegate.locationUpdateDistance)
         locationManager.delegate = self
         
         let status = CLLocationManager.authorizationStatus()
@@ -38,8 +39,22 @@ class MainNavController: UINavigationController, CLLocationManagerDelegate {
         switch status {
         case .authorizedAlways, .authorizedWhenInUse:
             locationManager.startUpdatingLocation()
+            if let topVC = topViewController {
+                if topVC.isKind(of: MapViewController.self) {
+                    if let mapView = (topVC as! MapViewController).mapView {
+                        mapView.showsUserLocation = true
+                    }
+                }
+            }
         default:
             locationManager.stopUpdatingLocation()
+            if let topVC = topViewController {
+                if topVC.isKind(of: MapViewController.self) {
+                    if let mapView = (topVC as! MapViewController).mapView {
+                        mapView.showsUserLocation = false
+                    }
+                }
+            }
         }
     }
     
@@ -55,8 +70,6 @@ class MainNavController: UINavigationController, CLLocationManagerDelegate {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let newLocation = locations[locations.count-1]
         appDelegate.lastLocation = newLocation
-//        appDelegate.lastLocation = nil
-//        appDelegate.lastLocation=CLLocation(coordinate: newLocation.coordinate, altitude: newLocation.altitude, horizontalAccuracy: newLocation.horizontalAccuracy, verticalAccuracy: newLocation.verticalAccuracy, course: newLocation.course, speed: newLocation.speed, timestamp: newLocation.timestamp)
         
         if newLocation.horizontalAccuracy > appDelegate.remindDistance {
             return
@@ -85,6 +98,11 @@ class MainNavController: UINavigationController, CLLocationManagerDelegate {
                     if let table = (topVC as! InterchangeTableViewController).tableView {
                         table.reloadData()
                 }
+            }
+            else if topVC.isKind(of: MapViewController.self) {
+                let mapVC = topVC as! MapViewController
+                mapVC.currentLocation = newLocation
+//                mapVC.updateMap()
             }
         }
     }

@@ -11,7 +11,7 @@ import UIKit
 class FootpathTableViewController: UITableViewController {
     private let cellIdentifier = "FootpathTable"
     private var footpaths = [[String:Any]]()
-    private var collection:ApigeeCollection!
+    private var collection:ApigeeCollection? = nil
     private var loading = false
     @IBOutlet weak var loadingIndcator: UIActivityIndicatorView!
 
@@ -34,7 +34,18 @@ class FootpathTableViewController: UITableViewController {
             self.loadingIndcator.startAnimating()
         })
         collection = dataClient?.getCollection("footpaths") { resp in
-            var entity = self.collection.getNextEntity()
+            if self.collection == nil {
+                let alert = UIAlertController (title: "Error", message: "Fail to retrieve footpath list from the server. Refresh to try again.", preferredStyle: .alert)
+                let action  = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alert.addAction(action)
+                self.present(alert, animated: true, completion: nil)
+                self.loading = false
+                DispatchQueue.main.async(execute: {
+                    self.loadingIndcator.stopAnimating()
+                })
+                return
+            }
+            var entity = self.collection!.getNextEntity()
             while entity != nil {
                 let name = entity?.getStringProperty("name")
                 let start_address = entity?.getStringProperty("start_address")
@@ -51,13 +62,13 @@ class FootpathTableViewController: UITableViewController {
                                 "end_lat" : end_location?["lat"],
                                 "end_lng" : end_location?["lng"]]
                 self.footpaths.append(footpath )
-                entity = self.collection.getNextEntity()
+                entity = self.collection!.getNextEntity()
             }
-            while self.collection.hasNextPage () {
-                self.collection.getNextPage()
-                let response = self.collection.getNextPage()!
+            while self.collection!.hasNextPage () {
+                self.collection!.getNextPage()
+                let response = self.collection!.getNextPage()!
                 if response.completedSuccessfully() {
-                    var entity = self.collection.getNextEntity()
+                    var entity = self.collection!.getNextEntity()
                     while entity != nil {
                         let name = entity?.getStringProperty("name")
                         let start_address = entity?.getStringProperty("start_address")
@@ -74,7 +85,7 @@ class FootpathTableViewController: UITableViewController {
                                         "end_lat" : end_location?["lat"],
                                         "end_lng" : end_location?["lng"]]
                         self.footpaths.append(footpath)
-                        entity = self.collection.getNextEntity()
+                        entity = self.collection!.getNextEntity()
                     }
                 }
             }
@@ -149,14 +160,15 @@ class FootpathTableViewController: UITableViewController {
     }
     */
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        let indexPath = tableView.indexPath(for: sender as! UITableViewCell)!
+        let mapVC = segue.destination as! MapViewController
+        mapVC.selectedPath = footpaths[indexPath.row]
     }
-    */
 
 }
