@@ -102,7 +102,21 @@ class MainNavController: UINavigationController, CLLocationManagerDelegate {
             else if topVC.isKind(of: MapViewController.self) {
                 let mapVC = topVC as! MapViewController
                 mapVC.currentLocation = newLocation
-//                mapVC.updateMap()
+                mapVC.updateMap()
+            }
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateHeading newHeading: CLHeading) {
+        if newHeading.headingAccuracy < 0 {
+            return
+        }
+        let theHeading = newHeading.trueHeading > 0 ? newHeading.trueHeading : newHeading.magneticHeading
+        if let topVC = topViewController {
+            if topVC.isKind(of: MapViewController.self) {
+                let mapVC = topVC as! MapViewController
+                mapVC.currentHeading = theHeading
+                mapVC.updateMap()
             }
         }
     }

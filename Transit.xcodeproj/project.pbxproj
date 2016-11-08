@@ -28,6 +28,7 @@
 		433717721DCDA55E0019DF4B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 433717711DCDA55E0019DF4B /* QuartzCore.framework */; };
 		433717761DCDAD970019DF4B /* ApigeeiOSSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 433717751DCDAD970019DF4B /* ApigeeiOSSDK.framework */; };
 		436267401DD1C082006178B2 /* Polyline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4362673F1DD1C082006178B2 /* Polyline.swift */; };
+		436267421DD2193D006178B2 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436267411DD2193D006178B2 /* MapKit.framework */; };
 		43D3C1141DCE608E00AAD003 /* InterchangeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D3C1131DCE608E00AAD003 /* InterchangeTableViewController.swift */; };
 		43D3C1161DCE6FB200AAD003 /* plus.png in Resources */ = {isa = PBXBuildFile; fileRef = 43D3C1151DCE6FB200AAD003 /* plus.png */; };
 		43D3C1181DCE722300AAD003 /* SelectTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D3C1171DCE722300AAD003 /* SelectTableViewController.swift */; };
@@ -84,6 +85,7 @@
 		433717751DCDAD970019DF4B /* ApigeeiOSSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ApigeeiOSSDK.framework; sourceTree = "<group>"; };
 		433717781DCDB3B50019DF4B /* Transit-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Transit-Bridging-Header.h"; sourceTree = "<group>"; };
 		4362673F1DD1C082006178B2 /* Polyline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Polyline.swift; sourceTree = "<group>"; };
+		436267411DD2193D006178B2 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		43D3C1131DCE608E00AAD003 /* InterchangeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterchangeTableViewController.swift; sourceTree = "<group>"; };
 		43D3C1151DCE6FB200AAD003 /* plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plus.png; sourceTree = SOURCE_ROOT; };
 		43D3C1171DCE722300AAD003 /* SelectTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectTableViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				433717761DCDAD970019DF4B /* ApigeeiOSSDK.framework in Frameworks */,
 				433717721DCDA55E0019DF4B /* QuartzCore.framework in Frameworks */,
 				43D3C1271DCF6A5800AAD003 /* FBSDKLoginKit.framework in Frameworks */,
+				436267421DD2193D006178B2 /* MapKit.framework in Frameworks */,
 				433717701DCDA5510019DF4B /* UIKit.framework in Frameworks */,
 				4337176E1DCDA5420019DF4B /* SystemConfiguration.framework in Frameworks */,
 				4337176C1DCDA5390019DF4B /* Security.framework in Frameworks */,
@@ -197,6 +200,7 @@
 		433717641DCDA50B0019DF4B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				436267411DD2193D006178B2 /* MapKit.framework */,
 				43D3C1281DCF6F4200AAD003 /* Bolts.framework */,
 				43D3C1241DCF6A5800AAD003 /* FBSDKCoreKit.framework */,
 				43D3C1251DCF6A5800AAD003 /* FBSDKLoginKit.framework */,
@@ -291,6 +295,9 @@
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Keychain = {
+								enabled = 1;
+							};
+							com.apple.Maps.iOS = {
 								enabled = 1;
 							};
 						};
