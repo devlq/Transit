@@ -50,7 +50,8 @@ class FootpathTableViewController: UITableViewController {
                 let name = entity?.getStringProperty("name")
                 let start_address = entity?.getStringProperty("start_address")
                 let end_address = entity?.getStringProperty("end_address")
-                let polyline = entity?.getStringProperty("overview_polyline")
+                let overview_polyline = entity?.getObjectProperty("overview_polyline") as? NSDictionary
+                let polyline = overview_polyline?["points"] as? String
                 let start_location = entity?.getObjectProperty("start_location") as? NSDictionary
                 let end_location = entity?.getObjectProperty("end_location") as? NSDictionary
                 let footpath = ["name" : name,
@@ -91,11 +92,11 @@ class FootpathTableViewController: UITableViewController {
             }
             self.footpaths.sort{($0["name"] as! String) < ($1["name"] as! String)}
             self.loading = false
+            self.tableView.reloadData()
             DispatchQueue.main.async(execute: {
                 self.loadingIndcator.stopAnimating()
             })
-            self.tableView.reloadData()
-         }
+          }
     }
 
     override func didReceiveMemoryWarning() {

@@ -27,6 +27,7 @@
 		433717701DCDA5510019DF4B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4337176F1DCDA5510019DF4B /* UIKit.framework */; };
 		433717721DCDA55E0019DF4B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 433717711DCDA55E0019DF4B /* QuartzCore.framework */; };
 		433717761DCDAD970019DF4B /* ApigeeiOSSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 433717751DCDAD970019DF4B /* ApigeeiOSSDK.framework */; };
+		436267401DD1C082006178B2 /* Polyline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4362673F1DD1C082006178B2 /* Polyline.swift */; };
 		43D3C1141DCE608E00AAD003 /* InterchangeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D3C1131DCE608E00AAD003 /* InterchangeTableViewController.swift */; };
 		43D3C1161DCE6FB200AAD003 /* plus.png in Resources */ = {isa = PBXBuildFile; fileRef = 43D3C1151DCE6FB200AAD003 /* plus.png */; };
 		43D3C1181DCE722300AAD003 /* SelectTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D3C1171DCE722300AAD003 /* SelectTableViewController.swift */; };
@@ -82,6 +83,7 @@
 		433717711DCDA55E0019DF4B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		433717751DCDAD970019DF4B /* ApigeeiOSSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ApigeeiOSSDK.framework; sourceTree = "<group>"; };
 		433717781DCDB3B50019DF4B /* Transit-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Transit-Bridging-Header.h"; sourceTree = "<group>"; };
+		4362673F1DD1C082006178B2 /* Polyline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Polyline.swift; sourceTree = "<group>"; };
 		43D3C1131DCE608E00AAD003 /* InterchangeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterchangeTableViewController.swift; sourceTree = "<group>"; };
 		43D3C1151DCE6FB200AAD003 /* plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plus.png; sourceTree = SOURCE_ROOT; };
 		43D3C1171DCE722300AAD003 /* SelectTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectTableViewController.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 				4332753F1DD171C200551174 /* FootpathTableViewController.swift */,
 				433275411DD19F3400551174 /* MapViewController.swift */,
 				433275431DD1A73E00551174 /* Place.swift */,
+				4362673F1DD1C082006178B2 /* Polyline.swift */,
 			);
 			path = Transit;
 			sourceTree = "<group>";
@@ -459,6 +462,7 @@
 				433717351DCD9E820019DF4B /* AppDelegate.swift in Sources */,
 				43D3C1141DCE608E00AAD003 /* InterchangeTableViewController.swift in Sources */,
 				43D3C1181DCE722300AAD003 /* SelectTableViewController.swift in Sources */,
+				436267401DD1C082006178B2 /* Polyline.swift in Sources */,
 				433275441DD1A73E00551174 /* Place.swift in Sources */,
 				43130B851DCDD29E0020AAAF /* HomeViewController.swift in Sources */,
 			);
