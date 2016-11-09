@@ -182,6 +182,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
                 let okAction = UIAlertAction(title: "OK", style: .cancel) {action in
                     self.guideStarted = false
                     self.starButton.setTitle("Start", for: UIControlState.normal)
+                    self.instruction.text=""
                     locationManager.distanceFilter = CLLocationDistance(appDelegate.locationUpdateDistanceInterchange)
                     self.displayMap()
                 }

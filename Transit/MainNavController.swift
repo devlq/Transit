@@ -74,6 +74,14 @@ class MainNavController: UINavigationController, CLLocationManagerDelegate {
         if newLocation.horizontalAccuracy > appDelegate.remindDistance {
             return
         }
+        if let topVC = topViewController {
+            if topVC.isKind(of: MapViewController.self) {
+                let mapVC = topVC as! MapViewController
+                mapVC.currentLocation = newLocation
+                mapVC.updateMap()
+                return
+            }
+        }
         var nearInterchange = false
         for ic in appDelegate.interchanges {
             let icLocation = CLLocation(latitude: ic.latitude!, longitude: ic.longitude!)
@@ -89,20 +97,15 @@ class MainNavController: UINavigationController, CLLocationManagerDelegate {
                     //show alert
                 }
             }
-            if !nearInterchange { // not near any interchange, or just left a interchange. reset reminderShown
-                reminderShown = false
-            }
+        }
+        if !nearInterchange { // not near any interchange, or just left a interchange. reset reminderShown
+            reminderShown = false
         }
         if let topVC = topViewController {
             if topVC.isKind(of: InterchangeTableViewController.self) {
                     if let table = (topVC as! InterchangeTableViewController).tableView {
                         table.reloadData()
                 }
-            }
-            else if topVC.isKind(of: MapViewController.self) {
-                let mapVC = topVC as! MapViewController
-                mapVC.currentLocation = newLocation
-                mapVC.updateMap()
             }
         }
     }
